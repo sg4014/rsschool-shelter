@@ -1,0 +1,18 @@
+@use '../abstracts/variables' as *;
+
+.button {
+  padding: 15px 45px;
+  font-family: 'Georgia';
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: $btn-dark;
+  background: $primary;
+  border: none;
+  border-radius: 45px;
+  cursor: pointer;
+
+  &:hover {
+    background: $primary-light;
+  }
+}

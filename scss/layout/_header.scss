@@ -1,0 +1,29 @@
+@use '../abstracts/variables' as *;
+
+.header {
+  background: black;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  display: block;
+}
+
+.header__title {
+  margin-bottom: 10px;
+  color: $primary;
+}
+
+.header__subtitle {
+  color: $white;
+}
+
+.header__burger {
+  display: none;
+}
+

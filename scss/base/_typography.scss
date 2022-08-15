@@ -1,0 +1,44 @@
+// Load font-family "Georgia"
+
+@use '../abstracts';
+
+body {
+  font-weight: 400;
+}
+
+h2, h3, h4, h5 {
+  font-family: 'Georgia';
+  font-style: normal;
+}
+
+h2, h3 {
+  line-height: 130%;
+}
+
+h2 {
+  font-size: 44px;
+}
+
+h3, h4, h5 {
+  letter-spacing: 0.06em;
+}
+
+h3 {
+  font-size: 35px;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 115%;
+}
+
+h5 {
+  font-size: 15px;
+  line-height: 110%;
+}
+
+p {
+  font-family: 'Arial';
+  font-size: 15px;
+  line-height: 160%;
+}

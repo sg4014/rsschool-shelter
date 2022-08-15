@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+.menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+
+  @media (max-width: 680px) {
+    gap: 15px;
+  }
+}
+
+.menu__link {
+  text-decoration: none;
+  color: $top-grey;
+  line-height: 160%;
+
+  &_active {
+    color: $active-link;
+    border-bottom: 3px solid $primary;
+    padding-bottom: 3px;
+  }
+
+  &:hover {
+    color: $active-link;
+  }
+
+}
+
+
