@@ -1,29 +1,39 @@
 @use '../abstracts/variables' as *;
 
-.header {
-  background: black;
-}
-
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 2;
+  margin: 30px auto;
 }
 
 .header__logo {
   display: block;
+  cursor: pointer;
 }
 
 .header__title {
+  line-height: 110%;
+  font-weight: 400;
+  letter-spacing: 0.06em;
   margin-bottom: 10px;
   color: $primary;
 }
 
 .header__subtitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
   color: $white;
 }
 
 .header__burger {
   display: none;
+  @media (max-width: $burger-menu) {
+    display: block;
+  }
 }
 

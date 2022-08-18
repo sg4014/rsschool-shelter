@@ -5,15 +5,20 @@
   flex-wrap: wrap;
   gap: 35px;
 
-  @media (max-width: 680px) {
+  @media (max-width: 740px) {
     gap: 15px;
+  }
+  @media (max-width: $burger-menu) {
+    display: none;
   }
 }
 
 .menu__link {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 160%;
   text-decoration: none;
   color: $top-grey;
-  line-height: 160%;
 
   &_active {
     color: $active-link;
