@@ -11,23 +11,27 @@
   <div class="wrapper">
     <header class="header">
       <div class="header__container">
-        <a href="./home.html" class="header__logo">
-          <h1 class="header__title">Cozy House</h1>
-          <div class="header__subtitle">Shelter for pets in Boston</div>
+        <a href="./home.html" class="header__logo logo">
+          <h1 class="logo__title">Cozy House</h1>
+          <div class="logo__subtitle">Shelter for pets in Boston</div>
         </a>
         <nav class="header__menu menu">
+          <a href="./home.html" class="menu__logo logo">
+            <h1 class="logo__title">Cozy House</h1>
+            <div class="logo__subtitle">Shelter for pets in Boston</div>
+          </a>
           <ul class="menu__list">
             <li class="menu__item">
-              <a href="#" class="menu__link menu__link_active">About the shelter</a>
+              <a href="./home.html" class="menu__link menu__link_active">About the shelter</a>
             </li>
             <li class="menu__item">
-              <a href="#" class="menu__link">Our pets</a>
+              <a href="./pets.html" class="menu__link">Our pets</a>
             </li>
             <li class="menu__item">
-              <a href="#" class="menu__link">Help the shelter</a>
+              <a href="./home.html#help" class="menu__link">Help the shelter</a>
             </li>
             <li class="menu__item">
-              <a href="#" class="menu__link">Contacts</a>
+              <a href="#footer" class="menu__link">Contacts</a>
             </li>
           </ul>
         </nav>
@@ -59,12 +63,29 @@
           </div>
         </div>
       </section>
+
+      <section class="about">
+        <h2>About Shelter</h2>
+      </section>
+
+      <section class="pets">
+        <h2>Pets</h2>
+      </section>
+
+      <section id="help" class="help">
+        <h2>How can you help our shelter</h2>
+      </section>
+
+      <section class="donation">
+        <h2>You can also make a donation</h2>
+      </section>
     </main>
 
-    <footer class="footer">
-      Footer
+    <footer id="footer" class="footer">
+      Contacts
     </footer>
   </div>
-  <script src="./js/script.js"></script>
+  <div class="overlay"></div>
+  <script src="./js/script.js" type="module"></script>
 </body>
 </html>

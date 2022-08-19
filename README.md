@@ -8,8 +8,12 @@
   - [x]Complete start screen layout
   - [x]Add start screen background
   - [x]Make header appear over start screen's background
-  - Make start screen & header adaptive
-  - ?? Split start-screen's content into two containers: for text and for image;
-       on tablet bp: make start-screen container flex-column,
-                     center text-container's content horizontally,
-                     align image-container's box with image to the right.
+  - [x]Make start screen & header adaptive
+  - Add adaptive burger menu
+      - [x]Burger menu is present on the page when screen width is less than 768 px
+      - On the burger click: 320px width menu slides in from the right
+      - Burger menu smoothly rotates when menu is opened
+      - The outside of the menu is darkened
+      - On the ouside or burger click: menu slides out
+      - While burger menu is sliding out the icon rotates
+      - 
