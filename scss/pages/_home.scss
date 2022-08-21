@@ -115,15 +115,19 @@
   &__content {
     display: flex;
     justify-content: space-between;
-    padding: 80px 175px 100px;
+    @include section-content-padding(175px);
+    // padding: 80px 175px 100px;
     @media (max-width: 1240px) {
-      padding: 80px 115px 100px;
+      @include section-content-padding(115px);
+      // padding: 80px 115px 100px;
     }
     @media (max-width: 1100px) {
-      padding: 80px 55px 100px;
+      @include section-content-padding(55px);
+      // padding: 80px 55px 100px;
     }
     @media (max-width: 960px) {
-      padding: 80px 15px 100px;
+      @include section-content-padding(15px);
+      // padding: 80px 15px 100px;
     }
     @media (max-width: 890px) {
       flex-flow: column-reverse;

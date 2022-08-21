@@ -1,0 +1,3 @@
+@mixin section-content-padding($horizontal: 0px) {
+  padding: 80px $horizontal 100px;
+}

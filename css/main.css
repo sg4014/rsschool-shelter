@@ -536,6 +536,13 @@ p {
   overflow: hidden;
 }
 
+.pets {
+  background: #F6F6F6;
+}
+.pets__content {
+  padding: 80px 0px 100px;
+}
+
 /*==================================================*/
 .header__container {
   margin-top: 60px;

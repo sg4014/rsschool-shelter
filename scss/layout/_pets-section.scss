@@ -1,0 +1,9 @@
+@use '../abstracts' as *;
+
+.pets {
+  background: $pets-section-bg;
+
+  &__content {
+    @include section-content-padding;
+  }
+}
