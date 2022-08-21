@@ -570,6 +570,11 @@ p {
     align-items: stretch;
   }
 }
+@media (max-width: 769px) {
+  .start-screen__button {
+    align-self: center;
+  }
+}
 .start-screen__text-content {
   display: flex;
   flex-direction: column;

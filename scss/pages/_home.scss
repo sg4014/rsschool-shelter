@@ -46,6 +46,9 @@
 
   &__button {
     @extend %button;
+    @media (max-width: $tablet) {
+      align-self: center;
+    }
   }
 
   &__text-content {
