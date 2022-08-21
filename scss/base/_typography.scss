@@ -1,4 +1,4 @@
-@use '../abstracts';
+@use '../abstracts' as *;
 
 body {
   font-weight: 400;
@@ -11,4 +11,5 @@ p {
   font-family: 'Arial';
   font-size: 15px;
   line-height: 160%;
+  color: $paragraph-dark;
 }
