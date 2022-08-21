@@ -72,6 +72,7 @@
     line-height: 130%;
     max-width: 330px;
     @media (max-width: $mobile) {
+      margin: 0 auto;
       max-width: 200px;
       align-self: auto;
       text-align: center;
@@ -93,6 +94,7 @@
   }
   
   &__image-box {
+    max-height: 728px;
     flex: 0 1 698px;
     @media (max-width: $mobile-l) {
       max-width: 570px;

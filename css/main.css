@@ -605,6 +605,7 @@ p {
 }
 @media (max-width: 391px) {
   .start-screen__title {
+    margin: 0 auto;
     max-width: 200px;
     align-self: auto;
     text-align: center;
@@ -625,6 +626,7 @@ p {
   justify-content: flex-end;
 }
 .start-screen__image-box {
+  max-height: 728px;
   flex: 0 1 698px;
 }
 @media (max-width: 769px) {
