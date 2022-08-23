@@ -1,0 +1,69 @@
+@use '../abstracts' as *;
+
+.carousel {
+  display: grid;
+  @include carousel-columns;
+  @media (max-width: $tablet) {
+    @include carousel-columns( minmax(580px, 630px) );
+  }
+  @media (max-width: 714px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 435px 52px;
+    row-gap: 20px;
+  }
+
+  &__cards-container {
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: $pets-mobile-1) {
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+      gap: 20px;
+    }
+
+    & > * {
+      flex: 0 0 270px;
+    }
+
+    @media (max-width: $tablet) {
+      .carousel__card:nth-of-type(3) {
+        display: none;
+      }
+    }
+    @media (max-width: $pets-mobile-2) {
+      .carousel__card:nth-of-type(2) {
+        display: none;
+      }
+    }
+  }
+
+  &__left-column,
+  &__right-column {
+    @extend %flex-centered;
+    grid-row: 1 / 2;
+    @media (max-width: $pets-mobile-1) {
+      grid-row: 2 / 3;
+    }
+  }
+
+  &__left-column {
+    grid-column: 1 / 2;
+  }
+
+  &__right-column {
+    grid-column: 5 / 6;
+    @media (max-width: $pets-mobile-1) {
+      grid-column: 2 / 3;
+    }
+  }
+
+  &__left-arrow {
+    @extend %carousel-button;
+  }
+
+  &__right-arrow {
+    @extend %carousel-button;
+    transform: rotate(180deg);
+  }
+}

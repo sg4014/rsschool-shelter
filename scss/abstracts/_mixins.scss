@@ -1,3 +1,7 @@
 @mixin section-content-padding($horizontal: 0px) {
   padding: 80px $horizontal 100px;
 }
+
+@mixin carousel-columns($cards-container: minmax(870px, 990px)) {
+  grid-template-columns: 52px minmax(12px, 52px) $cards-container minmax(12px, 52px) 52px;
+}
