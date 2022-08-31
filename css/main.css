@@ -423,6 +423,7 @@ p {
 }
 
 .carousel {
+  overflow: hidden;
   display: grid;
   grid-template-columns: 52px minmax(12px, 52px) minmax(870px, 990px) minmax(12px, 52px) 52px;
 }
@@ -465,6 +466,7 @@ p {
 }
 .carousel__left-column, .carousel__right-column {
   grid-row: 1/2;
+  z-index: 10;
 }
 @media (max-width: 714px) {
   .carousel__left-column, .carousel__right-column {

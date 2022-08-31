@@ -1,4 +1,3 @@
-'use strict';
 
 export default function activateMenu() {
   const body = document.body;

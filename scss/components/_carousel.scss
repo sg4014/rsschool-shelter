@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 
 .carousel {
+  overflow: hidden;
   display: grid;
   @include carousel-columns;
   @media (max-width: $tablet) {
@@ -45,6 +46,7 @@
     @media (max-width: $pets-mobile-1) {
       grid-row: 2 / 3;
     }
+    z-index: 10;
   }
 
   &__left-column {
