@@ -35,12 +35,6 @@ export default function activateCarousel() {
       throw new Error(`Unexpected animation name: ${animationEvent.animationName}.
       Expected 'move-left' or 'move-right'`);
     }
-
-    // Log pets' names.
-    console.log('\nPets on current slide:');
-    [...centerSlide.children].forEach(card => {
-      console.log(card.querySelector('.card__title').textContent.trim());
-    })
     
     leftArrow.addEventListener('click', moveLeft);
     rightArrow.addEventListener('click', moveRight);

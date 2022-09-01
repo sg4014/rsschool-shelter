@@ -1,7 +1,5 @@
 @use '../abstracts' as *;
 
-
-// TODO: Make layout adaptive !ACCORDING TO TECHNICAL REQUIREMENTS!
 .carousel {
   display: grid;
   grid-template-columns: 52px 53px $slideWidthDesktop 53px 52px;
