@@ -2,73 +2,69 @@ import * as util from './utility.js';
 import pets from '../pets.json' assert { type: "json" };
 
 export default function activateCarousel() {
-  const carousel = document.querySelector('.carousel');
-
-  generateCardsContainer();
-  const cardsContainer = document.querySelector('.carousel__cards-container');
-
+  const slidesContainer = document.querySelector('.carousel__slides-container');
   const petsCards = pets.map(pet => getPetCard(pet));
 
   util.shuffleArray(petsCards);
 
-  appendCards(petsCards.slice(0, 3));
+  const leftSlide = slidesContainer.querySelector('.carousel__slide-left');
+  const centerSlide = slidesContainer.querySelector('.carousel__slide-center');
+  const rightSlide = slidesContainer.querySelector('.carousel__slide-right');
 
+  centerSlide.append(...petsCards.slice(0, 3));
   // ==================================================
+
+  const leftArrow = document.querySelector('.carousel__left-arrow');
   const rightArrow = document.querySelector('.carousel__right-arrow');
+  
+  leftArrow.addEventListener('click', moveLeft);
+  rightArrow.addEventListener('click', moveRight);
 
-  rightArrow.addEventListener('click', () => {
-    const untouchedCards = petsCards.slice(3);
-
-    util.shuffleArray(untouchedCards);
-
-    appendCards(untouchedCards.slice(0, 3));
+  slidesContainer.addEventListener('animationend', animationEvent => {
+    if (animationEvent.animationName === 'move-left') {
+      slidesContainer.classList.remove('transition-left');
+      removeChildren(centerSlide);
+      centerSlide.append(...leftSlide.children);
+    } else if (animationEvent.animationName === 'move-right') {
+      slidesContainer.classList.remove('transition-right');
+      removeChildren(centerSlide);
+      centerSlide.append(...rightSlide.children);
+    }
+    
+    leftArrow.addEventListener('click', moveLeft);
+    rightArrow.addEventListener('click', moveRight);
   })
 
-  // Simply append cards to cardsContainer.
-
-
-  // Generate a cards container with three random pets.
-  // Create an array of pets without the pets in the cards container (length = 8 - 3 = 5) named remainingPets
-  // Shuffle remainingPets array.
-  // Create a new cards container with three random pets from remainingPets array.
-  // Set the new cards container's position to absolute.
-  // Attach the new cards container to the left or right side of the currently visible cards container
-  // (depending on the arrow clicked).
-  // Create animation to translate to the new cards container.
-  // On animation end, change the current cards container's content to that of the new cards container.
-  
-  function appendCards(cards) {
-    /**
-     * Appends the cards from the given array
-     * to the cards container.
-     */
-    cards.forEach(card => cardsContainer.appendChild(card));
+  function removeChildren(node) {
+    [...node.children].forEach(child => {
+      node.removeChild(child);
+    });
   }
 
-  function generateCardsContainer() {
-    const cardsContainer = document.createElement('div');
-    cardsContainer.classList.add('carousel__cards-container');
-    carousel.appendChild(cardsContainer);
+  function moveLeft() {
+    const shownCards = [...centerSlide.children];
+    const remainingCards = petsCards.filter(card => !shownCards.includes(card));
+
+    util.shuffleArray(remainingCards);
+    leftSlide.append(...remainingCards.slice(0, 3));
+
+    slidesContainer.classList.add('transition-left');
+
+    leftArrow.removeEventListener('click', moveLeft);
+    rightArrow.removeEventListener('click', moveRight);
   }
 
-  function getCardsContainer(petsArray) {
-    /**
-     * Returns a container with the cards from the given array of pets.
-     * 
-     * @param  {array}  petsArray - Array of objects, each object contains data about a pet.
-     * 
-     * @return {object} cardsContainer - HTML div element that contains the cards of the pets from
-     *                                   the given array.
-     */
-    const cardsContainer = document.createElement('div');
-    cardsContainer.classList.add('carousel__cards-container');
+  function moveRight() {
+    const shownCards = [...centerSlide.children];
+    const remainingCards = petsCards.filter(card => !shownCards.includes(card));
 
-    petsArray.forEach(pet => {
-      const petCard = getPetCard(pet);
-      cardsContainer.appendChild(petCard);
-    })
+    util.shuffleArray(remainingCards);
+    rightSlide.append(...remainingCards.slice(0, 3));
 
-    return cardsContainer;
+    slidesContainer.classList.add('transition-right');
+
+    leftArrow.removeEventListener('click', moveLeft);
+    rightArrow.removeEventListener('click', moveRight);
   }
 
   function getPetCard(pet) {
@@ -77,7 +73,7 @@ export default function activateCarousel() {
      * 
      * @param  {object} pet - Object that contains the pet's data.
      * 
-     * @return {object} card - The html element for the card of the given pet. 
+     * @return {node}   card - The node for the card of the given pet. 
      */
     const card = document.createElement('div');
     card.classList.add('carousel__card', 'card');

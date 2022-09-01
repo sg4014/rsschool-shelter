@@ -56,3 +56,14 @@
     background: $primary-light;
   }
 }
+
+%carousel-slide {
+  height: 100%;
+  flex: 0 0 calc(100% / 3);
+  display: flex;
+  gap: 90px;
+
+  & > * {
+    flex: 0 0 270px;
+  }
+}
