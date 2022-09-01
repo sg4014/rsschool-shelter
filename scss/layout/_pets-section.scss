@@ -19,6 +19,7 @@
   &__title {
     @extend %block-title;
     text-align: center;
+    max-height: 64px;
   }
 
   &__button {

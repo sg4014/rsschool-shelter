@@ -1,13 +1,15 @@
 @use '../abstracts' as *;
 
+
+// TODO: Make layout adaptive !ACCORDING TO TECHNICAL REQUIREMENTS!
 .carousel {
   display: grid;
-  @include carousel-columns;
-  @media (max-width: $tablet) {
-    @include carousel-columns( minmax(580px, 630px) );
+  grid-template-columns: 52px 53px $slideWidthDesktop 53px 52px;
+  @media (max-width: $laptop) {
+    grid-template-columns: 52px 12px $slideWidthLaptop 12px 52px;
   }
-  @media (max-width: 714px) {
-    grid-template-columns: 1fr 1fr;
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: repeat(2, calc($slideWidthMobile / 2));
     grid-template-rows: 435px 52px;
     row-gap: 20px;
   }
@@ -15,43 +17,67 @@
   &__slides-wrapper {
     overflow: hidden;
     grid-column: 3 / 4;
-    @media (max-width: $pets-mobile-1) {
+    @media (max-width: $bp-mobile) {
       grid-column: 1 / 3;
       grid-row: 1 / 2;
       gap: 20px;
     }
 
-    @media (max-width: $tablet) {
-      .carousel__card:nth-of-type(3) {
-        display: none;
-      }
-    }
-    @media (max-width: $pets-mobile-2) {
-      .carousel__card:nth-of-type(2) {
-        display: none;
-      }
-    }
+    
   }
 
   &__slides-container {
     position: relative;
-    left: -100%; // one slide width
+    left: calc(-1 * $slideWidthDesktop);
     display: flex;
     width: 300%; 
     height: 435px;
+    @media (max-width: $laptop) {
+      left: calc(-1 * $slideWidthLaptop);
+    }
+    @media (max-width: $bp-mobile) {
+      left: calc(-1 * $slideWidthMobile);
+    }
   }
 
   &__slide-left,
   &__slide-center,
   &__slide-right {
-    @extend %carousel-slide;
+    height: 100%;
+    flex: 0 0 990px;
+    display: flex;
+    gap: 90px;
+    @media (max-width: $laptop) {
+      flex: 0 0 580px;
+      gap: 40px;
+    }
+    @media (max-width: $bp-mobile) {
+      flex: 0 0 270px;
+      gap: 0;
+    }
+
+    & > * {
+      flex: 0 0 270px;
+    }
+
+    /* Hide third and second cards on breakpoints */
+    @media (max-width: $laptop) {
+      & > *:nth-of-type(3) {
+        display: none;
+      }
+    }
+    @media (max-width: $bp-mobile) {
+      & > *:nth-of-type(2) {
+        display: none;
+      }
+    }
   }
 
   &__left-column,
   &__right-column {
     @extend %flex-centered;
     grid-row: 1 / 2;
-    @media (max-width: $pets-mobile-1) {
+    @media (max-width: $bp-mobile) {
       grid-row: 2 / 3;
     }
     z-index: 10;
@@ -63,7 +89,7 @@
 
   &__right-column {
     grid-column: 5 / 6;
-    @media (max-width: $pets-mobile-1) {
+    @media (max-width: $bp-mobile) {
       grid-column: 2 / 3;
     }
   }

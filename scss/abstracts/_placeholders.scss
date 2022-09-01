@@ -19,7 +19,7 @@
   line-height: 130%;
   letter-spacing: 0.06em;
   color: $title-dark;
-  @media (max-width: 500px) {
+  @media (max-width: $bp-mobile) {
     font-size: 25px;
   }
 }
@@ -55,15 +55,5 @@
     border: none;
     background: $primary-light;
   }
-}
 
-%carousel-slide {
-  height: 100%;
-  flex: 0 0 calc(100% / 3);
-  display: flex;
-  gap: 90px;
-
-  & > * {
-    flex: 0 0 270px;
-  }
 }

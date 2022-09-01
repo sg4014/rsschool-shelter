@@ -12,10 +12,18 @@ $pets-section-bg: #F6F6F6;
 $card-background: #FAFAFA;
 
 // Breakpoints
+$laptop: 1279px;
+$bp-mobile: 767px;
+// ==================================================
 $tablet: 1025px;
-$mobile-l: 769px;
+$mobile-l: 768px;
 $mobile: 391px;
 $mobile-sm: 321px;
 $burger-menu: 767px;
 $pets-mobile-1: 714px;
 $pets-mobile-2: 635px;
+
+// Dimensions
+$slideWidthDesktop: 990px;
+$slideWidthLaptop: 580px;
+$slideWidthMobile: 270px;

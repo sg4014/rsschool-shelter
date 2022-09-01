@@ -3,38 +3,50 @@ import pets from '../pets.json' assert { type: "json" };
 
 export default function activateCarousel() {
   const slidesContainer = document.querySelector('.carousel__slides-container');
+  const leftSlide = slidesContainer.querySelector('.carousel__slide-left');
+  const centerSlide = slidesContainer.querySelector('.carousel__slide-center');
+  const rightSlide = slidesContainer.querySelector('.carousel__slide-right');
   const petsCards = pets.map(pet => getPetCard(pet));
 
   util.shuffleArray(petsCards);
 
-  const leftSlide = slidesContainer.querySelector('.carousel__slide-left');
-  const centerSlide = slidesContainer.querySelector('.carousel__slide-center');
-  const rightSlide = slidesContainer.querySelector('.carousel__slide-right');
-
   centerSlide.append(...petsCards.slice(0, 3));
-  // ==================================================
 
+  // ==================================================
   const leftArrow = document.querySelector('.carousel__left-arrow');
   const rightArrow = document.querySelector('.carousel__right-arrow');
   
   leftArrow.addEventListener('click', moveLeft);
   rightArrow.addEventListener('click', moveRight);
 
+  // ==================================================
   slidesContainer.addEventListener('animationend', animationEvent => {
     if (animationEvent.animationName === 'move-left') {
       slidesContainer.classList.remove('transition-left');
       removeChildren(centerSlide);
       centerSlide.append(...leftSlide.children);
-    } else if (animationEvent.animationName === 'move-right') {
+    }
+    else if (animationEvent.animationName === 'move-right') {
       slidesContainer.classList.remove('transition-right');
       removeChildren(centerSlide);
       centerSlide.append(...rightSlide.children);
     }
+    else {
+      throw new Error(`Unexpected animation name: ${animationEvent.animationName}.
+      Expected 'move-left' or 'move-right'`);
+    }
+
+    // Log pets' names.
+    console.log('\nPets on current slide:');
+    [...centerSlide.children].forEach(card => {
+      console.log(card.querySelector('.card__title').textContent.trim());
+    })
     
     leftArrow.addEventListener('click', moveLeft);
     rightArrow.addEventListener('click', moveRight);
   })
 
+  // ==================================================
   function removeChildren(node) {
     [...node.children].forEach(child => {
       node.removeChild(child);
