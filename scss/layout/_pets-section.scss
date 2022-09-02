@@ -10,7 +10,7 @@
     align-items: center;
     & > *:not(:last-child) {
       margin-bottom: 60px;
-      @media (max-width: $pets-mobile-2) {
+      @media (max-width: $bp-mobile) {
         margin-bottom: 42px;
       }
     }
@@ -19,7 +19,6 @@
   &__title {
     @extend %block-title;
     text-align: center;
-    max-height: 64px;
   }
 
   &__button {

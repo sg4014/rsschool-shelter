@@ -6,7 +6,7 @@
   &__container {
     margin-top: 60px;
     margin-bottom: 60px;
-    @media (max-width: $mobile-l) {
+    @media (max-width: $bp-laptop) {
       margin-top: 30px;
     }
   }
@@ -31,11 +31,13 @@
 
   &__container {
     display: flex;
+    gap: 10px;
     justify-content: space-between;
     align-items: flex-end;
-    @media (max-width: $mobile-l) {
+    @media (max-width: $bp-to-column) {
       flex-direction: column;
       align-items: stretch;
+      gap: 0px;
     }
     position: relative;
     z-index: 1;
@@ -44,7 +46,7 @@
 
   &__button {
     @extend %button;
-    @media (max-width: $mobile-l) {
+    @media (max-width: $bp-to-column) {
       align-self: center;
     }
   }
@@ -55,7 +57,7 @@
     align-items: flex-start;
     max-width: 460px;
     margin: 0 0 20.6%;
-    @media (max-width: $mobile-l) {
+    @media (max-width: $bp-to-column) {
       margin: 0 auto 100px;
     }
   }
@@ -71,7 +73,7 @@
     font-weight: 400;
     line-height: 130%;
     max-width: 330px;
-    @media (max-width: $mobile) {
+    @media (max-width: $bp-mobile) {
       margin: 0 auto;
       max-width: 200px;
       align-self: auto;
@@ -83,7 +85,7 @@
   
   &__subtitle {
     color: $top-grey;
-    @media (max-width: $mobile) {
+    @media (max-width: $bp-mobile) {
       text-align: center;
     }
   }
@@ -94,13 +96,16 @@
   }
   
   &__image-box {
-    max-height: 728px;
     flex: 0 1 698px;
-    @media (max-width: $mobile-l) {
-      max-width: 570px;
+    max-height: 728px;
+    @media (max-width: $bp-laptop) {
+      // max-width: 570px;
+      flex: 0 1 570px;
+      max-height: 593px;
     }
-    @media (max-width: $mobile) {
-      max-width: 260px;
+    @media (max-width: $bp-mobile-sm) {
+      flex: 0 1 260px;
+      max-height: 270px;
     }
   
     img {
@@ -134,7 +139,7 @@
       align-items: center;
       gap: 80px;
     }
-    @media (max-width: $mobile) {
+    @media (max-width: $bp-mobile) {
       padding: 42px 15px;
       gap: 42px;
     }
@@ -142,6 +147,7 @@
 
   &__image-box {
     max-width: 300px;
+    max-height: 408px;
     @media (max-width: $mobile) {
       max-width: 260px;
     }
@@ -155,7 +161,7 @@
   &__title {
     @extend %block-title;
     max-width: 370px;
-    @media (max-width: 500px) {
+    @media (max-width: $bp-mobile) {
       text-align: center;
     }
   }

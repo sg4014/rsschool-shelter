@@ -20,13 +20,13 @@
   display: none;
   z-index: 10;
 
-  @media (max-width: $burger-menu) {
+  @media (max-width: $bp-mobile) {
     margin-right: 23px; /* total distance from right border is 53: 23px margin + 30px padding. */
     display: block;
     transition: transform 0.3s;
     transform: rotate(0deg);
   }
-  @media (max-width: $mobile) {
+  @media (max-width: $bp-mobile) {
     margin-right: 43px;
   }
 

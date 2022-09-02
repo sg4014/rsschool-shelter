@@ -3,7 +3,7 @@
 .carousel {
   display: grid;
   grid-template-columns: 52px 53px $slideWidthDesktop 53px 52px;
-  @media (max-width: $laptop) {
+  @media (max-width: $bp-laptop) {
     grid-template-columns: 52px 12px $slideWidthLaptop 12px 52px;
   }
   @media (max-width: $bp-mobile) {
@@ -30,7 +30,7 @@
     display: flex;
     width: 300%; 
     height: 435px;
-    @media (max-width: $laptop) {
+    @media (max-width: $bp-laptop) {
       left: calc(-1 * $slideWidthLaptop);
     }
     @media (max-width: $bp-mobile) {
@@ -45,7 +45,7 @@
     flex: 0 0 990px;
     display: flex;
     gap: 90px;
-    @media (max-width: $laptop) {
+    @media (max-width: $bp-laptop) {
       flex: 0 0 580px;
       gap: 40px;
     }
@@ -59,7 +59,7 @@
     }
 
     /* Hide third and second cards on breakpoints */
-    @media (max-width: $laptop) {
+    @media (max-width: $bp-laptop) {
       & > *:nth-of-type(3) {
         display: none;
       }
