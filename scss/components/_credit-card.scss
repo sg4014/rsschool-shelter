@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+.credit-card {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 15px;
+  background: $primary;
+  border-radius: 9px;
+  @media (max-width: $bp-mobile) {
+    width: 281px;
+  }
+
+  &__image {
+    width: 30px;
+  }
+
+  &__number {
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    @media (max-width: $bp-mobile) {
+      font-size: 15px;
+    }
+  }
+}
