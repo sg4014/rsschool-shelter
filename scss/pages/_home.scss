@@ -341,9 +341,9 @@
     color: $bottom-grey;
     font-style: italic;
     font-size: 12px;
+    line-height: 18px;
     @media (max-width: $bp-mobile) {
       text-align: justify;
-      line-height: 18px;
     }
   }
 }

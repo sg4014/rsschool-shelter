@@ -55,5 +55,26 @@
     border: none;
     background: $primary-light;
   }
+}
 
+%footer-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  & > *:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  .footer__title {
+    @extend %block-title;
+    color: $white;
+  }
+
+  a {
+    color: $primary;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+  }
 }
