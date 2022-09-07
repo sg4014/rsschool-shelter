@@ -8,11 +8,32 @@
     display: flex;
     gap: 160px;
     padding-top: 40px;
+    @media (max-width: $bp-laptop) {
+      padding-top: 30px;
+      display: grid;
+      gap: 0;
+      grid-template-columns: 34px 281px 60px 302px 34px;
+      grid-template-rows: 234px 65px 310px;
+    }
+    @media (max-width: $bp-mobile) {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
   }
 
   &__contacts {
     @extend %footer-block;
     max-width: 280px;
+    @media (max-width: $bp-laptop) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+    @media (max-width: $bp-mobile) {
+      text-align: center;
+      align-items: center;
+    }
   }
 
   &__locations {
@@ -20,16 +41,44 @@
     & > *:not(:last-child) {
       margin-bottom: 33px;
     }
+    @media (max-width: $bp-laptop) {
+      grid-column: 4 / 5;
+      grid-row: 1 / 2;
+    }
+    @media(max-width: $bp-mobile) {
+      & > *:not(:last-child) {
+        margin-bottom: 40px;
+      }
+      .footer__title {
+        max-width: 270px;
+        align-self: center;
+        text-align: center;
+      }
+    }
   }
 
   &__title {
     margin-top: 16px;
+    @media (max-width: $bp-laptop) {
+      margin-top: 0;
+    }
   }
 
   &__link {
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+
+  &__image {
+    @media (max-width: $bp-laptop) {
+      grid-column: 1 / -1;
+      grid-row: 3 / 4;
+      justify-self: center;
+    }
+    @media (max-width: $bp-mobile) {
+      max-width: 260px;
+    }
   }
   
 }
