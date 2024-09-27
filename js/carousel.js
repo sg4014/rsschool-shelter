@@ -1,5 +1,5 @@
 import * as util from './utility.js';
-import pets from '../pets.json' assert { type: "json" };
+import pets from '../pets.json' with { type: "json" };
 
 export default function activateCarousel() {
   const slidesContainer = document.querySelector('.carousel__slides-container');
@@ -15,7 +15,7 @@ export default function activateCarousel() {
   // ==================================================
   const leftArrow = document.querySelector('.carousel__left-arrow');
   const rightArrow = document.querySelector('.carousel__right-arrow');
-  
+
   leftArrow.addEventListener('click', moveLeft);
   rightArrow.addEventListener('click', moveRight);
 
@@ -35,7 +35,7 @@ export default function activateCarousel() {
       throw new Error(`Unexpected animation name: ${animationEvent.animationName}.
       Expected 'move-left' or 'move-right'`);
     }
-    
+
     leftArrow.addEventListener('click', moveLeft);
     rightArrow.addEventListener('click', moveRight);
   })
